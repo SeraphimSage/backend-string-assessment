@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Kenneth Pinkerton and some help from Dan on Stack Overflow"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,8 +23,12 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
+    if s[-3:] == "ing":
+        return s + "ly"
+    elif len(s) > 3:
+        return s + "ing"
+    else:
+        return s
 
 
 # E. not_bad
@@ -37,8 +41,13 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    not_loc = s.find('not')
+    bad_loc = s.find('bad') + 3
+    if not_loc != -1:
+        if not_loc < bad_loc:
+            removetext = s[not_loc:bad_loc]
+            return s.replace(removetext, 'good')
+    return s
 
 
 # F. front_back
@@ -52,8 +61,27 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    if len(a) % 2 == 0:
+        a_front = a[: (len(a)) / 2]
+    elif len(a) % 2 != 0:
+        a_front = a[: (len(a)) / 2 + 1]
+
+    if len(a) % 2 == 0:
+        a_back = a[(len(a) / 2):]
+    elif len(a) % 2 != 0:
+        a_back = a[(len(a)) / 2 + 1:]
+
+    if len(b) % 2 == 0:
+        b_front = b[: (len(b)) / 2]
+    elif len(b) % 2 != 0:
+        b_front = b[: (len(b)) / 2 + 1]
+
+    if len(b) % 2 == 0:
+        b_back = b[(len(b)) / 2:]
+    elif len(b) % 2 != 0:
+        b_back = b[(len(b))/2 + 1:]
+
+    return a_front + b_front + a_back + b_back
 
 
 # Provided simple test() function used in main() to print
