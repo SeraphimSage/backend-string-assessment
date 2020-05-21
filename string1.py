@@ -28,12 +28,11 @@ __author__ = "Kenneth Pinkerton"
 
 
 def donuts(count):
-    result = ""
     count_str = str(count)
+    donut_str = "Number of donuts: "
     if count < 10:
-        return "Number of donuts: " + count_str
-    else:
-        return "Number of donuts: many"
+        return donut_str + count_str
+    return donut_str + "many"
 
 
 # B. both_ends
@@ -46,14 +45,7 @@ def donuts(count):
 
 
 def both_ends(s):
-    while s > 1:
-        if len(s) < 2:
-            result = ''
-        else:
-            start = s[0:2]
-            end = s[-2:]
-            result = start + end
-        return result
+    return '' if len(s) < 2 else s[0:2] + s[-2:]
 
 # C. fix_start
 # Given a string s, return a string where all occurrences
@@ -67,10 +59,7 @@ def both_ends(s):
 
 
 def fix_start(s):
-    first = s[0]
-    star_str = s.replace(s[0], '*')
-    new_str = first + star_str[1:]
-    return new_str
+    return s[0] + s[1:].replace(s[0], "*")
 
 
 # D. mix_up
@@ -84,9 +73,7 @@ def fix_start(s):
 
 
 def mix_up(a, b):
-    a_start = a[:2]
-    b_start = b[:2]
-    return ((a.replace(a[:2], b_start) + " " + b.replace(b[:2], a_start)))
+    return a.replace(a[:2], b[:2]) + " " + b.replace(b[:2], a[:2])
 
 
 # Provided simple test() function used in main() to print
